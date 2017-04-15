@@ -33,10 +33,10 @@ export const addStazione = (stazione) => {
 
 export const SELECT_STAZIONE = 'SELECT_STAZIONE'
 
-export function selectStazione(stazione) {
+export function selectStazione(id) {
   return {
     type: SELECT_STAZIONE,
-    stazione
+    id
   }
 }
 

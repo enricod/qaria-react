@@ -36,6 +36,14 @@ const stazioniState = (state = {
                 ...state,
                 stazioni: action.stazioni
             };
+
+        case 'SELECT_STAZIONE':
+          return { 
+                ...state,
+                stazioneSelezionata: action.id,
+                viewName: 'stazione'
+            };
+
         default:
             return state
     }

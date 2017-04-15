@@ -1,33 +1,14 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-// import { bindActionCreators } from 'redux';
 import logo from '../logo.svg';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import StazioniVisibili from '../containers/StazioniVisibili'
 
-import  {fetchStazioniIfNeeded}  from '../actions'
 
 import '../App.css';
-
-
 
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      mainView: 'intro'
-      
-    }
-  }
-
-  componentDidMount() {
-    console.log("app mounted");
-   
-  }
-
-  handleChange() {
-    console.log("handle change");
   }
 
   render() {

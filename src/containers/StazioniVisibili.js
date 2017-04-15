@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { toggleTodo } from '../actions'
+import { selectStazione } from '../actions'
 import StazioneList from '../components/StazioneList'
 
 /**
@@ -14,8 +14,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onTodoClick: (id) => {
-        //dispatch(toggleTodo(id))
+        onStazioneClick: (id) => {
+            console.log("selezionata stazione " + id);
+            dispatch(selectStazione(id))
         }
     }
 }
