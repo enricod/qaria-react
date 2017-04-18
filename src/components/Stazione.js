@@ -7,12 +7,10 @@ const Stazione = ({ onClick, nome, stazioneId }) => (
   </div>
 )
 
-
 Stazione.propTypes = {
   onClick: PropTypes.func.isRequired,
   nome: PropTypes.string.isRequired,
   stazioneId: PropTypes.number.isRequired
 }
-
 
 export default Stazione

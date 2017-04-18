@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Inquinante from './Inquinante'
+import MisureListContainer from '../containers/MisureListContainer'
 
 const StazioneDettagliComponent = ({ staz, onInquinanteClick }) => (
 
@@ -18,7 +19,7 @@ const StazioneDettagliComponent = ({ staz, onInquinanteClick }) => (
         }
     </div>
     <div>
-
+      <MisureListContainer />
     </div>
   </div>
 )

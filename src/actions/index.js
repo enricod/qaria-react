@@ -62,30 +62,40 @@ function receiveStazioni(json) {
     }
 }
 
+function receiveMisure(json) {
+    return {
+        type: 'RECEIVE_MISURE',
+        misure: json.Misure,
+        receivedAt: Date.now()
+    }
+}
+
 
 export function fetchStazioni() {
 
   return function (dispatch) {
-
-    // First dispatch: the app state is updated to inform
-    // that the API call is starting.
-
     dispatch(requestStazioni())
-
-    // The function called by the thunk middleware can return a value,
-    // that is passed on as the return value of the dispatch method.
-
-    // In this case, we return a promise to wait for.
-    // This is not required by thunk middleware, but it is convenient for us.
-
     return fetch(`http://qaria-148716.appspot.com/api/stazioni`)
       .then(response => response.json())
       .then(json => {
-          console.log( json )
-          // We can dispatch many times!
-          // Here, we update the app state with the results of the API call.
-
           dispatch(receiveStazioni(json))
+        }
+    )
+
+      // In a real world app, you also want to
+      // catch any error in the network call.
+  }
+}
+
+
+export function fetchMisure(stazioneId, inq) {
+
+  return function (dispatch) {
+    
+    return fetch(`http://qaria-148716.appspot.com/api/stazioneMisure?stazioneId=` + stazioneId + "&inquinante=" + inq )
+      .then(response => response.json())
+      .then(json => {
+          dispatch(receiveMisure(json))
         }
     )
 
