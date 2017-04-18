@@ -3,7 +3,9 @@
 const stazioniState = (state = { 
          stazioni:[],
          stazioneSelezionata: -1,
-         viewName: 'intro'
+         viewName: 'intro',
+         inquinanteSelezionato: '',
+         misure:[]
       }, action) => {
 
     switch (action.type) {

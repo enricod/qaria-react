@@ -1,12 +1,12 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
-import StazioneDettagli from './StazioneDettagli'
+import StazioneDettagliContainer from '../containers/StazioneDettagliContainer'
 
 const MainComponent =( {viewName, stazSelezionata} ) => {
     
     if (viewName === 'stazione') {
         return (
-            <StazioneDettagli 
+            <StazioneDettagliContainer
                 key={stazSelezionata.StazioneId}
                 {...stazSelezionata}
                 staz={stazSelezionata}

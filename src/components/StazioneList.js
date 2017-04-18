@@ -22,7 +22,7 @@ StazioneList.propTypes = {
     StazioneId: PropTypes.number.isRequired,
     Nome: PropTypes.string.isRequired
   }).isRequired).isRequired,
-  // onStazioneClick: PropTypes.func.isRequired
+  onStazioneClick: PropTypes.func.isRequired
 }
 
 export default StazioneList

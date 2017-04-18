@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import { selectStazione } from '../actions'
-import StazioneDettagli from '../components/StazioneDettagli'
+import { selectInquinante } from '../actions'
+import StazioneDettagliComponent from '../components/StazioneDettagliComponent'
 
 /**
  * 
@@ -15,17 +15,17 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
+    
     return {
-        onStazioneClick: (id) => {
-            console.log("selezionata stazione " + id);
-            dispatch(selectStazione(id))
+        onInquinanteClick: (stazioneId, inq) => {
+            dispatch(selectInquinante(stazioneId, inq))
         }
     }
 }
 
-const StazioneContainer = connect(
+const StazioneDettagliContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(StazioneDettagli)
+)(StazioneDettagliComponent)
 
-export default StazioneContainer
+export default StazioneDettagliContainer

@@ -40,6 +40,14 @@ export function selectStazione(id) {
   }
 }
 
+export function selectInquinante(stazioneId, inq) {
+  return {
+    type: 'SELECT_INQUINANTE',
+    stazioneId: stazioneId,
+    inq: inq
+  }
+}
+
 function requestStazioni() {
   return {
     type: REQUEST_STAZIONI

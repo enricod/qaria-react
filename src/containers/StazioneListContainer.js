@@ -15,15 +15,14 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onStazioneClick: (id) => {
-            console.log("selezionata stazione " + id);
             dispatch(selectStazione(id))
         }
     }
 }
 
-const ElencoStazioniContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+const StazioneListContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
 )(StazioneList)
 
-export default ElencoStazioniContainer
+export default StazioneListContainer

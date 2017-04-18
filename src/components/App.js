@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import ElencoStazioniContainer from '../containers/ElencoStazioniContainer'
+import StazioneListContainer from '../containers/StazioneListContainer'
 import MainContainer from '../containers/MainContainer'
 
 
@@ -22,7 +22,7 @@ class App extends Component {
           <Row>
             <Col xs={3} md={3}>
               <h1>Stazioni</h1>
-               <ElencoStazioniContainer />
+               <StazioneListContainer />
             </Col>
             <Col xs={9} md={9}>
               <MainContainer />
