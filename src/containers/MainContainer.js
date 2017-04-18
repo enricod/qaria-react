@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
     const idx = state.stazioniState.stazioneSelezionata;
     const stazSelezionataIdx = findIndex( state.stazioniState.stazioni,
             function(s) {
-                    return s.StazioneId == idx;
+                    return s.StazioneId === idx;
             }
         );
     

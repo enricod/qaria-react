@@ -4,7 +4,7 @@ import StazioneDettagli from './StazioneDettagli'
 
 const MainComponent =( {viewName, stazSelezionata} ) => {
     
-    if (viewName == 'stazione') {
+    if (viewName === 'stazione') {
         return (
             <StazioneDettagli 
                 key={stazSelezionata.StazioneId}
@@ -16,7 +16,8 @@ const MainComponent =( {viewName, stazSelezionata} ) => {
     } else {
         return (
             <div>
-                <h1>{viewName}</h1>
+                <h1>Benvenuti in QAria</h1>
+                <p>Raccolta di dati sull'inquinamento dell'aria in Lombardia</p>
             </div>
         )
     }

@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={logo} className="App-logo" alt="logo" /> 
           <h2>Qualità aria Lombardia</h2>
         </div>
 
