@@ -23,7 +23,7 @@ const store = createStore(
 
 
 store.dispatch(fetchStazioni()).then(() =>
-  console.log( "ho caricato le stazioni " + store.getState())
+  console.log( "ho caricato le stazioni ")
 )
 
 ReactDOM.render(

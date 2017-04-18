@@ -2,13 +2,10 @@
 
 const stazioniState = (state = { 
          stazioni:[],
-         stazioneSelezionata: -1
+         stazioneSelezionata: -1,
+         viewName: 'intro'
       }, action) => {
-/*
-    console.log("~~~~~~~~~~~~~~~~~~~");
-    console.log(action);
-    console.log("~~~~~~~~~~~~~~~~~~~");
-*/
+
     switch (action.type) {
 
         case 'REQUEST_STAZIONI':

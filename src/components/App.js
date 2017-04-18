@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import StazioniVisibili from '../containers/StazioniVisibili'
+import ElencoStazioniContainer from '../containers/ElencoStazioniContainer'
+import MainContainer from '../containers/MainContainer'
 
 
 import '../App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-  }
+
 
   render() {
     return (
@@ -23,12 +22,10 @@ class App extends Component {
           <Row>
             <Col xs={3} md={3}>
               <h1>Stazioni</h1>
-               <StazioniVisibili />
-               
+               <ElencoStazioniContainer />
             </Col>
             <Col xs={9} md={9}>
-              <h1>Hello, world!</h1>
-              
+              <MainContainer />
             </Col>
           </Row>
         </Grid>

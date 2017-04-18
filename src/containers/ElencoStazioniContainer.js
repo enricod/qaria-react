@@ -21,9 +21,9 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const StazioniVisibili = connect(
+const ElencoStazioniContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(StazioneList)
 
-export default StazioniVisibili
+export default ElencoStazioniContainer
