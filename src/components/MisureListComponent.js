@@ -5,8 +5,8 @@ import React from 'react'
 const MisureListComponent = ({ misure }) => (
    <div>
     {misure.map( m => 
-        <div>
-            {m.DataMisura}
+        <div key={m.DataMisura + m.Inquinante}>
+            {m.DataMisura} {m.Valore}
         </div>
     )}
   </div> 

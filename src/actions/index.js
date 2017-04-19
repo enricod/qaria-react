@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch'
 export const REQUEST_STAZIONI = 'REQUEST_STAZIONI'
 export const RECEIVE_STAZIONI = 'RECEIVE_STAZIONI'
 export const SET_STAZIONI = 'SET_STAZIONI'
-
+export const API_BASE_URL = 'http://qaria-148716.appspot.com/api'
 
 /**
  * $r.store.dispatch({type:'SET_STAZIONI', stazioni:[{StazioneId:24, Nome:"JJJJ"}, {Stazione:12, Nome:"13"}]})
@@ -40,10 +40,10 @@ export function selectStazione(id) {
   }
 }
 
-export function selectInquinante(stazioneId, inq) {
+export function selectInquinante(stazione, inq) {
   return {
     type: 'SELECT_INQUINANTE',
-    stazioneId: stazioneId,
+    stazione: stazione,
     inq: inq
   }
 }
@@ -75,7 +75,7 @@ export function fetchStazioni() {
 
   return function (dispatch) {
     dispatch(requestStazioni())
-    return fetch(`http://qaria-148716.appspot.com/api/stazioni`)
+    return fetch( API_BASE_URL + `/stazioni`)
       .then(response => response.json())
       .then(json => {
           dispatch(receiveStazioni(json))
@@ -92,7 +92,7 @@ export function fetchMisure(stazioneId, inq) {
 
   return function (dispatch) {
     
-    return fetch(`http://qaria-148716.appspot.com/api/stazioneMisure?stazioneId=` + stazioneId + "&inquinante=" + inq )
+    return fetch(API_BASE_URL + `/misureStazione?StazioneId=` + stazioneId + "&Inquinante=" + inq )
       .then(response => response.json())
       .then(json => {
           dispatch(receiveMisure(json))

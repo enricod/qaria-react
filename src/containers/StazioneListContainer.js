@@ -15,6 +15,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onStazioneClick: (id) => {
+            // console.log("selezionata stazione id=" + id)
             dispatch(selectStazione(id))
         }
     }

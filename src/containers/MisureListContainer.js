@@ -7,16 +7,13 @@ import MisureListComponent from '../components/MisureListComponent'
  */
 const mapStateToProps = (state) => {
     return {
-        misure: state.stazioniState.misure,
-        stazioni: state.stazioniState.stazioni
+        misure: state.stazioniState.misure
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-         onInquinanteClick: () => {
-            
-        }
+        
     }
 }
 

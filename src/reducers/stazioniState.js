@@ -24,6 +24,17 @@ const stazioniState = (state = {
                 lastUpdated: action.receivedAt
             });
 
+
+        case 'RECEIVE_MISURE':
+            /**
+             * caricamento delle misure di una stazione e dato un inquinante
+             */
+            return Object.assign({}, state, {
+                isFetching: false,
+                didInvalidate: false,
+                misure: action.misure
+            });     
+
        case 'ADD_STAZIONE':
             return { 
                 ...state,
@@ -42,6 +53,13 @@ const stazioniState = (state = {
                 stazioneSelezionata: action.id,
                 viewName: 'stazione'
             };
+
+        case 'SELECT_INQUINANTE':
+          return { 
+                ...state,
+                inquinanteSelezionato: action.inq,
+                stazione: action.stazione
+            };    
 
         default:
             return state
