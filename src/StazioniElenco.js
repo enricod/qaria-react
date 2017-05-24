@@ -2,7 +2,7 @@
  * Created by enrico on 23/05/17.
  */
 import React, {Component} from 'react';
-import './StazioniElencoComp.css';
+import './StazioniElenco.css';
 
 
 class StazioneItem extends Component {
@@ -30,7 +30,7 @@ class StazioneItem extends Component {
 }
 
 
-class StazioniElencoComp extends Component {
+class StazioniElenco extends Component {
 
     // http://qualita-aria.enricod.it:8080/api/stazioni
     constructor(props) {
@@ -60,4 +60,4 @@ class StazioniElencoComp extends Component {
     }
 }
 
-export default StazioniElencoComp;
+export default StazioniElenco;
