@@ -9,7 +9,8 @@
     "axios": "^0.16.1",
     "react": "^15.5.4",
     "react-css-grid": "^1.0.0-beta.1",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-tab-panel": "^2.2.7"
   },
   "scripts": {
     "start": "react-scripts start",

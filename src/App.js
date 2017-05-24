@@ -18,6 +18,7 @@ class App extends Component {
     }
 
     componentDidMount() {
+        // http://qualita-aria.enricod.it:8080/api/stazioni
         axios.get(`http://qualita-aria.enricod.it:8080/api/stazioni`)
             .then(res => {
                 const stazioni = res.data.Stazioni; //.map(obj => obj.data);
