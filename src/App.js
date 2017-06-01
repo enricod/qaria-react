@@ -26,11 +26,13 @@ class App extends Component {
             });
     }
 
+
     handleSelezioneStazione(staz) {
         this.setState({
             stazioneSelezionata: staz
         })
     }
+
 
     render() {
         return (

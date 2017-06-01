@@ -4,7 +4,6 @@
 import React, {Component} from 'react';
 import './StazioniElenco.css';
 
-
 class StazioneItem extends Component {
 
     constructor(props) {
@@ -20,13 +19,13 @@ class StazioneItem extends Component {
     render() {
         return (
             <div>
-                <button  onClick={this.selectStazione} >
+                <button onClick={this.selectStazione}>
                     {this.props.stazione.Nome}
                 </button>
             </div>
         );
     }
-  
+
 }
 
 
@@ -39,7 +38,7 @@ class StazioniElenco extends Component {
         // props.stazioni = elenco stazioni
         // props.stazioneSelezionata = stazione corrente
 
-         this.handleSelezioneStazione = this.handleSelezioneStazione.bind(this);
+        this.handleSelezioneStazione = this.handleSelezioneStazione.bind(this);
     }
 
     handleSelezioneStazione(staz) {
@@ -51,9 +50,9 @@ class StazioniElenco extends Component {
             <div className="StazioniElencoComp">
                 <h3>Stazioni</h3>
                 {this.props.stazioni.map(s =>
-                    <StazioneItem key={s.StazioneId} 
-                        onStazioneClick={this.handleSelezioneStazione}
-                        stazione={s} />
+                    <StazioneItem key={s.StazioneId}
+                                  onStazioneClick={this.handleSelezioneStazione}
+                                  stazione={s}/>
                 )}
             </div>
         );
