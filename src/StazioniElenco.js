@@ -2,6 +2,7 @@
  * Created by enrico on 23/05/17.
  */
 import React, {Component} from 'react';
+import { Button } from 'react-bootstrap';
 import './StazioniElenco.css';
 
 class StazioneItem extends Component {
@@ -19,9 +20,9 @@ class StazioneItem extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.selectStazione}>
+                <Button bsSize="large" block onClick={this.selectStazione}>
                     {this.props.stazione.Nome}
-                </button>
+                </Button>
             </div>
         );
     }

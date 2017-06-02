@@ -7,6 +7,7 @@ import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import 'react-tabs/style/react-tabs.css';
 import PropTypes from 'prop-types';
+import { Button, ButtonGroup, Table} from 'react-bootstrap';
 
 import './Stazione.css';
 
@@ -17,22 +18,27 @@ class StazioneInquinanteTabella extends Component {
             this.props.misure.forEach((i) => {
                 rows.push(
                     <tr key={i.DataMisura}>
-                        <td className="misuraCella">{i.DataMisura}</td>
-                        <td className="misuraCella">{i.Valore}</td>
+                        <td  >{i.DataMisura}</td>
+                        <td  >{i.Valore}</td>
                     </tr>);
             });
         }
-        return (  <table>
+        return (
+            <Table>
+                <colgroup>
+                    <col width="20%" />
+                    <col width="80%" />
+                </colgroup>
             <thead>
-            <tr>
-                <th>Data</th>
-                <th>Valore</th>
-            </tr>
+                <tr>
+                    <th>Data</th>
+                    <th>Valore</th>
+                </tr>
             </thead>
             <tbody>
-            {rows}
+                {rows}
             </tbody>
-        </table> );
+        </Table> );
     }
 }
 
@@ -96,7 +102,7 @@ class InquinanteBtn extends Component {
     }
 
     render() {
-        return (<button key={this.props.inq} onClick={this.handleSelezioneInq}>{this.props.inq}</button>);
+        return (<Button key={this.props.inq} onClick={this.handleSelezioneInq}>{this.props.inq}</Button>);
     }
 }
 
@@ -123,7 +129,7 @@ class StazioneInquinanti extends Component {
                                             onSelezioneInquinante={this.handleSelezioneInq}/>);
             });
         }
-        return (  <div>{buttons}</div> );
+        return (  <ButtonGroup>{buttons}</ButtonGroup> );
     }
 }
 

@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
-import Grid from 'react-css-grid'
+//import Grid from 'react-css-grid'
 import axios from 'axios';
 import StazioniElenco from './StazioniElenco.js';
 import Stazione from './Stazione.js';
 // import logo from './logo.svg';
+import {Grid, Row, Col} from 'react-bootstrap';
 import './App.css';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            stazioni:[], 
-            stazioneSelezionata:null
+            stazioni: [],
+            stazioneSelezionata: null
         };
 
         this.handleSelezioneStazione = this.handleSelezioneStazione.bind(this);
@@ -22,7 +23,7 @@ class App extends Component {
         axios.get(`http://qualita-aria.enricod.it:8080/api/stazioni`)
             .then(res => {
                 const stazioni = res.data.Stazioni; //.map(obj => obj.data);
-                this.setState({ stazioni: stazioni });
+                this.setState({stazioni: stazioni});
             });
     }
 
@@ -40,18 +41,21 @@ class App extends Component {
                 <div className="App-header">
                     <h2>Welcome to Qaria</h2>
                 </div>
-                <div className="MainContent">
-                    <Grid col={4} sm={4} md={4} lg={2}>
-                        <StazioniElenco
-                            stazioni={this.state.stazioni} 
-                            stazioneSelezionata={this.state.stazioneSelezionata} 
-                            onSelezioneStazione={this.handleSelezioneStazione}
+                <Grid className="MainContent">
+                    <Row>
+                        <Col xs={12} md={3}>
+                            <StazioniElenco
+                                stazioni={this.state.stazioni}
+                                stazioneSelezionata={this.state.stazioneSelezionata}
+                                onSelezioneStazione={this.handleSelezioneStazione}
                             />
-                    </Grid>
-                    <Grid col={8} sm={8} md={8} lg={4}>
-                        <Stazione stazione={this.state.stazioneSelezionata} />
-                    </Grid>
-                </div>
+                        </Col>
+                        <Col xs={12} md={9}>
+                            <Stazione stazione={this.state.stazioneSelezionata}/>
+                        </Col>
+                    </Row>
+
+                </Grid>
             </div>
         );
     }
