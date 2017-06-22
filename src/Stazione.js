@@ -37,10 +37,10 @@ var inquinantiDefs = {
         "valoreLimite":0,
         "sogliaAllarme": 0
     },
-    "O3" : {
-        "um":'',
-        "valoreLimite":0,
-        "sogliaAllarme": 0
+    O3 : {
+        um:'',
+        valoreLimite:0,
+        sogliaAllarme: 0
     }
 }
 class StazioneInquinanteTabella extends Component {

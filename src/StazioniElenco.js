@@ -3,13 +3,16 @@
  */
 import React, {Component} from 'react';
 import { Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import './StazioniElenco.css';
 
-class StazioneItem extends Component {
 
+/**
+ * bottone in barra sinistra per scelta stazione
+ */
+class StazioneItem extends Component {
     constructor(props) {
         super(props);
-
         this.selectStazione = this.selectStazione.bind(this);
     }
 
@@ -26,8 +29,14 @@ class StazioneItem extends Component {
             </div>
         );
     }
-
 }
+
+StazioneItem.propTypes = {
+    stazione: PropTypes.object
+};
+
+
+
 
 
 class StazioniElenco extends Component {
@@ -35,10 +44,6 @@ class StazioniElenco extends Component {
     // http://qualita-aria.enricod.it:8080/api/stazioni
     constructor(props) {
         super(props);
-
-        // props.stazioni = elenco stazioni
-        // props.stazioneSelezionata = stazione corrente
-
         this.handleSelezioneStazione = this.handleSelezioneStazione.bind(this);
     }
 
@@ -59,5 +64,10 @@ class StazioniElenco extends Component {
         );
     }
 }
+
+StazioniElenco.propTypes = {
+    stazioni: PropTypes.array,
+    stazioneSelezionata: PropTypes.object
+};
 
 export default StazioniElenco;
