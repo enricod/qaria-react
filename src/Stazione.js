@@ -11,6 +11,38 @@ import { Button, ButtonGroup, Table} from 'react-bootstrap';
 
 import './Stazione.css';
 
+
+var inquinantiDefs = {
+    PM10 : {
+        um:'\u03BCg/m\u00B3',
+        valoreLimite:50
+    },
+    NO2 : {
+        um:'\u03BCg/m\u00B3',
+        "valoreLimite":200,
+        "sogliaAllarme": 400
+    },
+    "CO" : {
+        "um":'\u03BCg/m\u00B3',
+        "valoreLimite":10,
+        "sogliaAllarme": 0
+    },
+    "PM25" : {
+        "um":'',
+        "valoreLimite":0,
+        "sogliaAllarme": 0
+    },
+    "SO2" : {
+        "um":'',
+        "valoreLimite":0,
+        "sogliaAllarme": 0
+    },
+    "O3" : {
+        "um":'',
+        "valoreLimite":0,
+        "sogliaAllarme": 0
+    }
+}
 class StazioneInquinanteTabella extends Component {
     render() {
         var rows = [];
@@ -19,7 +51,7 @@ class StazioneInquinanteTabella extends Component {
                 rows.push(
                     <tr key={i.DataMisura}>
                         <td  >{i.DataMisura}</td>
-                        <td  >{i.Valore}</td>
+                        <td  >{i.Valore} {inquinantiDefs[this.props.inq].um}</td>
                     </tr>);
             });
         }
@@ -43,7 +75,8 @@ class StazioneInquinanteTabella extends Component {
 }
 
 StazioneInquinanteTabella.propTypes = {
-    misure: PropTypes.array.isRequired
+    misure: PropTypes.array.isRequired,
+    inq: PropTypes.string
 };
 
 class StazioneInquinanteGrafico extends Component {
@@ -162,10 +195,17 @@ class Stazione extends Component {
 
     render() {
         const staz = this.props.stazione;
+        var valoreLimite = '';
+        if (this.state.inquinanteSelezionato) {
+            valoreLimite = inquinantiDefs[this.state.inquinanteSelezionato].valoreLimite + ' ' + inquinantiDefs[this.state.inquinanteSelezionato].um;
+        }
         if (staz) {
             return (
                 <div className="StazioneComp">
                     <h3>{staz.Nome}</h3>
+
+                    <p>Valore limite: {valoreLimite} </p>
+
                     <StazioneInquinanti
                         inquinanti={staz.Inquinanti.split(',')}
                         onSelezioneInquinante={this.handleSelezioneInquinante} />
@@ -182,7 +222,8 @@ class Stazione extends Component {
                         </TabPanel>
                         <TabPanel>
                             <StazioneInquinanteTabella
-                                misure={this.state.misure}/>
+                                misure={this.state.misure}
+                                inq={this.state.inquinanteSelezionato}/>
                         </TabPanel>
                     </Tabs>
                 </div>
