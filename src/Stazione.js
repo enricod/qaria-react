@@ -183,8 +183,7 @@ class Stazione extends Component {
 
     handleSelezioneInquinante(inq) {
         // caricamento dei dati di inquinamento
-        axios.get('http://qualita-aria.enricod.it:8080/api/misure/' +
-            this.props.stazione.StazioneId + '/' + inq)
+        axios.get(`${this.props.baseApiUrl}/misure/${this.props.stazione.StazioneId}/${inq}`)
             .then(res => {
                 this.setState({
                     inquinanteSelezionato: inq,

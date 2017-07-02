@@ -41,8 +41,7 @@ StazioneItem.propTypes = {
 
 class StazioniElenco extends Component {
 
-    // http://qualita-aria.enricod.it:8080/api/stazioni
-    constructor(props) {
+     constructor(props) {
         super(props);
         this.handleSelezioneStazione = this.handleSelezioneStazione.bind(this);
     }
@@ -58,7 +57,9 @@ class StazioniElenco extends Component {
                 {this.props.stazioni.map(s =>
                     <StazioneItem key={s.StazioneId}
                                   onStazioneClick={this.handleSelezioneStazione}
-                                  stazione={s}/>
+                                  stazione={s}
+                                  
+                                  />
                 )}
             </div>
         );

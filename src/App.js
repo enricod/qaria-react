@@ -12,15 +12,15 @@ class App extends Component {
         super(props);
         this.state = {
             stazioni: [],
-            stazioneSelezionata: null
+            stazioneSelezionata: null,
+            baseApiUrl:'https://qualita-aria.enricod.it/api'
         };
 
         this.handleSelezioneStazione = this.handleSelezioneStazione.bind(this);
     }
 
     componentDidMount() {
-        // http://qualita-aria.enricod.it:8080/api/stazioni
-        axios.get(`http://qualita-aria.enricod.it:8080/api/stazioni`)
+        axios.get( `${this.state.baseApiUrl}/stazioni`)
             .then(res => {
                 const stazioni = res.data.Stazioni; //.map(obj => obj.data);
                 this.setState({stazioni: stazioni});
@@ -48,10 +48,13 @@ class App extends Component {
                                 stazioni={this.state.stazioni}
                                 stazioneSelezionata={this.state.stazioneSelezionata}
                                 onSelezioneStazione={this.handleSelezioneStazione}
+                                baseApiUrl={this.state.baseApiUrl}
                             />
                         </Col>
                         <Col xs={12} md={9}>
-                            <Stazione stazione={this.state.stazioneSelezionata}/>
+                            <Stazione stazione={this.state.stazioneSelezionata}
+                                        baseApiUrl={this.state.baseApiUrl}
+                                        />
                         </Col>
                     </Row>
 
